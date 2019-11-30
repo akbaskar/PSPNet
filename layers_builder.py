@@ -21,9 +21,6 @@ def BN(name=""):
 class Lambda(layers.Layer):
 
     def __init__(self, new_size, **kwargs):
-        print('tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
-        print('new size:')
-        print(new_size)
         self.new_size = new_size
         super(Lambda, self).__init__(**kwargs)
 
@@ -231,7 +228,7 @@ def build_pyramid_pooling_module(res, input_shape):
     interp_block3 = interp_block(res, 3, feature_map_size, input_shape)
     interp_block6 = interp_block(res, 6, feature_map_size, input_shape)
 
-    # concat all these layers. resulted
+    # concat all these layers resulted
     # shape=(1,feature_map_size_x,feature_map_size_y,4096)
     res = Concatenate()([res,
                          interp_block6,
